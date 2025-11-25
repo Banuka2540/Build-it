@@ -437,3 +437,17 @@ label {
         grid-template-columns: 1fr;
     }
 }
+
+/* Logo Header inside Form Card */
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ADD THIS TO CONTROL SIZE */
+.form-header img {
+    width: 120px;       /* <--- CHANGE THIS NUMBER TO RESIZE */
+    height: auto;       /* Maintains the aspect ratio */
+    margin-bottom: 10px;
+    display: inline-block;
+}
