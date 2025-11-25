@@ -6,16 +6,26 @@
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Custom properties defined in HTML, repeated here for completeness:
+:root {
+    --color-primary: #000000;
+    --color-secondary: #ed1c24;
+    --color-accent: #FFA500;
+    --color-text: #333;
+    --color-text-light: #ffffff;
+}
+*/
+
 body {
-    background-color: #ffffff;
-    color: #333;
+    background-color: #f8f8f8; /* Changed from #ffffff to match original HTML body style */
+    color: var(--color-text);
     /* Ensure the body takes full width */
     width: 100%;
     min-height: 100vh;
 }
 
-/* --- Shared Container Width --- */
-.nav-container, .main-container, .footer-content {
+/* --- Shared Container Width (Used in HTML as .page-container) --- */
+.page-container, .header .container {
     /* Increased max-width for a full-width feel while keeping content centered */
     max-width: 1200px;
     margin: 0 auto;
@@ -37,21 +47,29 @@ body {
     align-items: center;
 }
 
-/* 1. Logo Section (Flex 1 to push nav to center) */
+/* 1. Logo Section (Using logo-text class from corrected HTML) */
 .logo-wrapper {
-    flex: 1;
+    /* Used for layout control */
     display: flex;
     justify-content: flex-start;
 }
-
-.logo-img {
-    height: 55px; /* Slightly larger logo based on image */
-    width: auto;
+.logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--color-primary); /* Default text color for logo */
 }
 
-/* 2. Navigation Section (Flex 2 to center) */
+.logo-highlight {
+    color: var(--color-accent);
+}
+
+/* 2. Navigation Section */
 .nav {
-    flex: 2;
+    flex-grow: 1;
     display: flex;
     justify-content: center; /* Centers the links */
     gap: 40px; /* Space between links */
@@ -60,24 +78,21 @@ body {
 .nav a {
     font-size: 16px;
     font-weight: 500;
-    color: var(--color-primary-black);
+    color: var(--color-primary);
     position: relative;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.nav a:hover {
-    color: #ff9800;
-}
-
+.nav a:hover,
 .nav a.active {
-    color: #ff9800;
+    color: var(--color-accent);
     font-weight: 600;
 }
 
-/* 3. Actions Section (Flex 1 to push to right) */
+
+/* 3. Actions Section */
 .header-actions {
-    flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -86,7 +101,7 @@ body {
 
 /* Search Button (White Circle) */
 .search-btn {
-    background-color: var(--color-white);
+    background-color: #ffffff;
     border: none;
     width: 40px;
     height: 40px;
@@ -96,16 +111,16 @@ body {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.2s;
-    color: var(--color-primary-black);
+    color: var(--color-primary);
 }
 
 .search-btn:hover {
-    background-color: #ff9800;
+    background-color: var(--color-accent);
 }
 
 /* Log In Button (Black Pill) */
 .login-btn {
-    background-color: var(--color-primary-black);
+    background-color: var(--color-primary);
     color: var(--color-text-light);
     padding: 10px 30px;
     border-radius: 30px; /* Pill shape */
@@ -114,13 +129,12 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-decoration: none;
-    transition: opacity 0.3s;
-    margin-top: 0; /* Reset global btn margin */
+    transition: background-color 0.3s;
+    line-height: normal;
 }
 
 .login-btn:hover {
-    opacity: 0.8;
-    ;
+    background-color: #333;
 }
 
 /* Mobile Responsive Update */
@@ -128,7 +142,9 @@ body {
     .nav {
         display: none; /* Hide nav links on small screens */
     }
-    
+    .header .container {
+        justify-content: space-between;
+    }
     .header-actions {
         gap: 10px;
     }
@@ -136,331 +152,5 @@ body {
     .login-btn {
         padding: 8px 20px;
         font-size: 12px;
-    }
-}
-
-
-/* --- Main Content Styling --- */
-main {
-    /* Remove max-width and use the shared container */
-    margin: 0 auto;
-    padding: 40px 0; /* Vertical padding */
-}
-
-.category-section {
-    max-width: 1200px; /* Apply max-width to the section content */
-    margin: 0 auto 60px;
-    padding: 0 20px;
-}
-
-/* Section Title (Yellow Pill) */
-.section-title-wrapper {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.section-title {
-    background-color: #FFA500; /* Yellow/Orange */
-    color: #000;
-    display: inline-block;
-    padding: 12px 40px;
-    border-radius: 30px;
-    font-size: 22px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(255, 165, 0, 0.4);
-    letter-spacing: 0.5px;
-}
-
-/* Filter and Search Bar - NEW */
-.filter-search-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F5F5F5; /* Lighter background */
-    padding: 15px 25px;
-    border-radius: 12px;
-    margin-bottom: 35px;
-    gap: 20px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-}
-
-.filter-group, .search-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.filter-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    white-space: nowrap;
-}
-
-.dropdown-filter {
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    font-size: 14px;
-    appearance: none; /* Remove default arrow */
-    cursor: pointer;
-    min-width: 150px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.search-group {
-    flex-grow: 1; /* Allows search bar to take remaining space */
-}
-
-.search-input {
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    flex-grow: 1;
-    font-size: 14px;
-    color: #333;
-}
-
-.btn-search {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background-color 0.2s;
-}
-.btn-search:hover {
-    background-color: #333;
-}
-
-/* Cards */
-.card {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.card-details h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: #000;
-}
-
-.card-details p {
-    font-size: 14px;
-    margin-bottom: 4px;
-    color: #555;
-}
-.card-details .rating {
-    font-weight: 600;
-    color: #FFA500;
-}
-
-
-/* Red Button (Book/Order Now) */
-.btn-red {
-    background-color: #ed1c24; /* Bright Red */
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(237, 28, 36, 0.4);
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.btn-red:hover {
-    background-color: #c41219; /* Slightly darker red */
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(237, 28, 36, 0.6);
-}
-
-/* See More Button (Yellow) */
-.see-more-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.btn-see-more {
-    background-color: #FFA500; /* Yellow/Orange */
-    color: #000;
-    border: 2px solid #FFA500;
-    padding: 10px 50px;
-    border-radius: 30px;
-    font-weight: bold;
-    font-style: italic;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    box-shadow: 0 3px 8px rgba(255, 165, 0, 0.3);
-}
-
-.btn-see-more:hover {
-    background-color: #fff; /* Invert colors on hover */
-    color: #FFA500;
-    transform: translateY(-1px);
-}
-
-/* --- Footer Styling --- */
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 40px 0 20px;
-    margin-top: 50px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    border-top: 1px solid #333;
-    padding-top: 20px;
-}
-
-.footer-logo .logo {
-    color: #fff;
-}
-.footer-logo .tagline {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    color: #FFA500;
-    margin-left: 35px;
-    font-weight: 500;
-}
-
-.footer-links {
-    display: flex;
-    gap: 25px;
-}
-
-.footer-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.3s;
-}
-.footer-links a:hover {
-    color: #FFA500;
-}
-
-.footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 13px;
-}
-
-.social-icons {
-    margin-top: 10px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons span {
-    background: #333;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.social-icons span:hover {
-    background-color: #FFA500;
-    color: #000;
-}
-
-.copyright {
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    margin-top: 40px;
-    padding-bottom: 10px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .nav-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    nav {
-        order: 3; /* Move nav below logo and actions */
-        width: 100%;
-        justify-content: center;
-    }
-    .header-actions {
-        order: 2;
-    }
-    .logo {
-        order: 1;
-    }
-    
-    .filter-search-bar {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .filter-group, .search-group {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-    .search-input {
-        flex-grow: 1;
-        width: auto;
-    }
-    .btn-search {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .card-details {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    .card-action {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-        align-items: flex-start;
-    }
-
-    .footer-links {
-        flex-wrap: wrap;
-        gap: 15px;
     }
 }
