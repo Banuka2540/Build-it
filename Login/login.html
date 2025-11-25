@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildIt - Login / Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <a href="index.html" class="back-home-btn">
+        <span class="icon">⬅</span> Back to Home
+    </a>
+
+    <div class="main-wrapper">
+        <div class="form-card">
+            
+            <div class="form-header">
+                <div class="logo-icon">🏗️</div>
+                <h1>BUILD<span>IT</span></h1>
+            </div>
+
+            <div class="form-toggle">
+                <button class="toggle-btn active" id="loginToggle">Login</button>
+                <button class="toggle-btn" id="signupToggle">Sign Up</button>
+            </div>
+
+            <div class="form-wrapper" id="loginForm">
+                <h2>Welcome Back!</h2>
+                <p class="form-description">Access your account to continue your project.</p>
+
+                <div class="user-type-selector">
+                    <label>Login As:</label>
+                    <select id="loginUserType" class="input-field">
+                        <option value="customer">🏠 Customer</option>
+                        <option value="contractor">👷 Contractor / Worker</option>
+                        <option value="supplier">🏪 Material Supplier</option>
+                        <option value="transport">🚚 Transport Provider</option>
+                        <option value="equipment">⚙️ Equipment Provider</option>
+                        <option value="admin">🔐 Admin</option>
+                    </select>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label>Email or Phone Number</label>
+                        <input type="text" class="input-field" placeholder="Enter your mobile number or email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="input-field" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            <span>Remember Me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Login</button>
+
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social">
+                            <span>🔍</span> Google
+                        </button>
+                        <button type="button" class="btn-social">
+                            <span>🍎</span> Apple
+                        </button>
+                    </div>
+
+                    <p class="form-footer">
+                        Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+                    </p>
+                </form>
+            </div>
+
+            <div class="form-wrapper hidden" id="signupForm">
+                <h2>Create Your Account</h2>
+                <p class="form-description">Join BuildIt to start your construction journey!</p>
+
+                <div class="user-type-selector">
+                    <label>Register As:</label>
+                    <select id="signupUserType" class="input-field">
+                        <option value="customer">🏠 Customer</option>
+                        <option value="contractor">👷 Contractor / Worker</option>
+                        <option value="supplier">🏪 Material Supplier</option>
+                        <option value="transport">🚚 Transport Provider</option>
+                        <option value="equipment">⚙️ Equipment Provider</option>
+                    </select>
+                </div>
+
+                <form id="signupFormElement">
+                    <div id="commonFields">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="input-field" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="input-field" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="input-field" placeholder="+94 XX XXX XXXX" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="input-field" placeholder="Create password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="input-field" placeholder="Confirm password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address / City</label>
+                            <input type="text" class="input-field" placeholder="Enter your location" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Profile Photo (Optional)</label>
+                            <input type="file" class="input-field file-input" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div id="customerMessage" class="customer-message">
+                        <div class="success-icon">✓</div>
+                        <p>That's all we need! Click "Create Account" below to get started with BuildIt.</p>
+                    </div>
+
+                    <div id="contractorFields" class="provider-fields hidden">
+                        <div class="section-title">Professional Information</div>
+                        
+                        <div class="form-group">
+                            <label>Years of Experience</label>
+                            <input type="number" class="input-field" placeholder="Enter years of experience" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Categories</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="mason"> Mason</label>
+                                <label><input type="checkbox" value="electrician"> Electrician</label>
+                                <label><input type="checkbox" value="plumber"> Plumber</label>
+                                <label><input type="checkbox" value="painter"> Painter</label>
+                                <label><input type="checkbox" value="carpenter"> Carpenter</label>
+                                <label><input type="checkbox" value="housebuilder"> House Builder</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>NIC / ID Upload</label>
+                            <input type="file" class="input-field file-input" accept="image/*,.pdf">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Certification Upload (Optional)</label>
+                            <input type="file" class="input-field file-input" accept="image/*,.pdf" multiple>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Portfolio Photos (Optional)</label>
+                            <input type="file" class="input-field file-input" accept="image/*" multiple>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Price (Starting From)</label>
+                            <input type="number" class="input-field" placeholder="Enter daily/hourly rate (LKR)" min="0">
+                        </div>
+                    </div>
+
+                    <div id="supplierFields" class="provider-fields hidden">
+                        <div class="section-title">Business Information</div>
+                        
+                        <div class="form-group">
+                            <label>Shop Name</label>
+                            <input type="text" class="input-field" placeholder="Enter your shop name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Shop Location</label>
+                            <input type="text" class="input-field" placeholder="Enter shop address">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Materials Provided</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="cement"> Cement</label>
+                                <label><input type="checkbox" value="sand"> Sand</label>
+                                <label><input type="checkbox" value="bricks"> Bricks</label>
+                                <label><input type="checkbox" value="tiles"> Tiles</label>
+                                <label><input type="checkbox" value="steel"> Steel</label>
+                                <label><input type="checkbox" value="wood"> Wood</label>
+                                <label><input type="checkbox" value="hardware"> Hardware</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Price List Upload (Optional)</label>
+                            <input type="file" class="input-field file-input" accept=".pdf,.xlsx,.xls">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Delivery Available?</label>
+                            <select class="input-field">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Business Registration Certificate</label>
+                            <input type="file" class="input-field file-input" accept="image/*,.pdf">
+                        </div>
+                    </div>
+
+                    <div id="transportFields" class="provider-fields hidden">
+                        <div class="section-title">Vehicle Information</div>
+                        
+                        <div class="form-group">
+                            <label>Vehicle Type</label>
+                            <select class="input-field">
+                                <option value="tipper">Tipper Truck</option>
+                                <option value="lorry">Lorry</option>
+                                <option value="crane">Crane</option>
+                                <option value="van">Delivery Van</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Vehicle Capacity</label>
+                            <input type="text" class="input-field" placeholder="e.g., 5 tons, 10 cubic meters">
+                        </div>
+
+                        <div class="form-group">
+                            <label>License Number</label>
+                            <input type="text" class="input-field" placeholder="Enter vehicle license number">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Driver ID Upload</label>
+                            <input type="file" class="input-field file-input" accept="image/*,.pdf">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Price (per km or per load)</label>
+                            <input type="number" class="input-field" placeholder="Enter price (LKR)" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Vehicle Photos</label>
+                            <input type="file" class="input-field file-input" accept="image/*" multiple>
+                        </div>
+                    </div>
+
+                    <div id="equipmentFields" class="provider-fields hidden">
+                        <div class="section-title">Equipment Information</div>
+                        
+                        <div class="form-group">
+                            <label>Equipment Available</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="excavator"> Excavator</label>
+                                <label><input type="checkbox" value="concrete-mixer"> Concrete Mixer</label>
+                                <label><input type="checkbox" value="scaffolding"> Scaffolding</label>
+                                <label><input type="checkbox" value="machinery"> Heavy Machinery</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Equipment Photos</label>
+                            <input type="file" class="input-field file-input" accept="image/*" multiple>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rental Price (per day)</label>
+                            <input type="number" class="input-field" placeholder="Enter daily rental price (LKR)" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Business Registration Certificate</label>
+                            <input type="file" class="input-field file-input" accept="image/*,.pdf">
+                        </div>
+                    </div>
+
+                    <div class="form-group terms">
+                        <label class="remember-me">
+                            <input type="checkbox" required>
+                            <span>I agree to the Terms & Conditions and Privacy Policy</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Account</button>
+
+                    <p class="form-footer">
+                        Already have an account? <a href="#" id="switchToLogin">Login</a>
+                    </p>
+
+                    <div class="verification-note" id="verificationNote">
+                        <strong>📋 For Service Providers:</strong> Your account will be set to "Pending Verification" status. Our admin team will review your documents and activate your account within 24-48 hours.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between Login and Signup
+        const loginToggle = document.getElementById('loginToggle');
+        const signupToggle = document.getElementById('signupToggle');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+
+        function showLogin() {
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+            loginToggle.classList.add('active');
+            signupToggle.classList.remove('active');
+        }
+
+        function showSignup() {
+            loginForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+            loginToggle.classList.remove('active');
+            signupToggle.classList.add('active');
+        }
+
+        loginToggle.addEventListener('click', showLogin);
+        signupToggle.addEventListener('click', showSignup);
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSignup();
+        });
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            showLogin();
+        });
+
+        // Show/Hide provider-specific fields based on user type
+        const signupUserType = document.getElementById('signupUserType');
+        const contractorFields = document.getElementById('contractorFields');
+        const supplierFields = document.getElementById('supplierFields');
+        const transportFields = document.getElementById('transportFields');
+        const equipmentFields = document.getElementById('equipmentFields');
+        const customerMessage = document.getElementById('customerMessage');
+        const verificationNote = document.getElementById('verificationNote');
+
+        signupUserType.addEventListener('change', function() {
+            // Hide all provider fields
+            contractorFields.classList.add('hidden');
+            supplierFields.classList.add('hidden');
+            transportFields.classList.add('hidden');
+            equipmentFields.classList.add('hidden');
+            customerMessage.classList.add('hidden');
+            verificationNote.classList.add('hidden');
+
+            // Show relevant fields based on user type
+            switch(this.value) {
+                case 'customer':
+                    customerMessage.classList.remove('hidden');
+                    break;
+                case 'contractor':
+                    contractorFields.classList.remove('hidden');
+                    verificationNote.classList.remove('hidden');
+                    break;
+                case 'supplier':
+                    supplierFields.classList.remove('hidden');
+                    verificationNote.classList.remove('hidden');
+                    break;
+                case 'transport':
+                    transportFields.classList.remove('hidden');
+                    verificationNote.classList.remove('hidden');
+                    break;
+                case 'equipment':
+                    equipmentFields.classList.remove('hidden');
+                    verificationNote.classList.remove('hidden');
+                    break;
+            }
+        });
+
+        // Trigger on page load to show customer fields by default
+        signupUserType.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
