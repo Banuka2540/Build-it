@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buildit - Construction Services</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👷</span> Build<span class="logo-highlight">it</span>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <span class="search-icon">🔍</span>
+                <button class="btn-login">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECTION 1: Find a Contractor -->
+        <section class="category-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Find a Contractor</h2>
+            </div>
+
+            <!-- Updated Filter and Search Bar -->
+            <div class="filter-search-bar">
+                <div class="filter-group">
+                    <label for="contractor-filter" class="filter-label">Sort By:</label>
+                    <select id="contractor-filter" class="dropdown-filter">
+                        <option value="nearest">Nearest</option>
+                        <option value="rating-high">Rating (High → Low)</option>
+                        <option value="price-low">Price (Low → High)</option>
+                        <option value="service-type">Service Type</option>
+                        <option value="availability">Availability</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" class="search-input" placeholder="Search Services (e.g., Tiling, Plumbing)...">
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>Lakshan Construction Services</h3>
+                    <p class="rating">⭐ 4.9 / 5 (220 reviews)</p>
+                    <p class="location">📍 2.1 km away (Colombo 05)</p>
+                    <p class="price">💰 Starts from LKR 6,500 per day</p>
+                    <p class="tags">🛠️ Masonry • Renovations • Tiling</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>Nuwan Electrical & Wiring</h3>
+                    <p class="rating">⭐ 4.8 / 5 (180 reviews)</p>
+                    <p class="location">📍 1.4 km away (Nugegoda)</p>
+                    <p class="price">💰 Starts from LKR 4,200 per job</p>
+                    <p class="tags">🛠️ Full house wiring, repairs</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Book Now</button>
+                </div>
+            </div>
+
+            <div class="see-more-container">
+                <button class="btn-see-more">see more...</button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Order Construction Materials -->
+        <section class="category-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Order Construction Materials</h2>
+            </div>
+
+            <!-- Updated Filter and Search Bar -->
+            <div class="filter-search-bar">
+                <div class="filter-group">
+                    <label for="material-filter" class="filter-label">Sort By:</label>
+                    <select id="material-filter" class="dropdown-filter">
+                        <option value="nearest">Nearest</option>
+                        <option value="rating-high">Rating (High → Low)</option>
+                        <option value="price-low">Price (Low → High)</option>
+                        <option value="service-type">Supplier Rating</option>
+                        <option value="availability">Delivery Time</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" class="search-input" placeholder="Search Materials (e.g., Cement, Sand)...">
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>Cement (50kg Bags) - K&D Hardware Suppliers</h3>
+                    <p class="location">📍 1.1 km away</p>
+                    <p class="price">💰 LKR 1,420 per bag (lowest)</p>
+                    <p class="rating">⭐ 4.8 rating</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>Sand (1 Cube) - Premasiri Sand Suppliers </h3>
+                    <p class="location">📍 4.2 km away</p>
+                    <p class="price">💰 LKR 6,800 per cube</p>
+                    <p class="delivery">🚚 Delivery within 2 hours</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Order Now</button>
+                </div>
+            </div>
+
+            <div class="see-more-container">
+                <button class="btn-see-more">see more...</button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Book Transport -->
+        <section class="category-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Book Transport</h2>
+            </div>
+
+            <!-- Updated Filter and Search Bar -->
+            <div class="filter-search-bar">
+                <div class="filter-group">
+                    <label for="transport-filter" class="filter-label">Sort By:</label>
+                    <select id="transport-filter" class="dropdown-filter">
+                        <option value="nearest">Nearest</option>
+                        <option value="rating-high">Rating (High → Low)</option>
+                        <option value="price-low">Price (Low → High)</option>
+                        <option value="service-type">Vehicle Type</option>
+                        <option value="availability">Availability</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <input type="text" class="search-input" placeholder="Search Vehicles (e.g., Tipper, Crane)...">
+                    <button class="btn-search">Search</button>
+                </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>6-Wheeler Tipper Truck - Premasiri Transport</h3>
+                    <p class="location">📍 3.1 km away</p>
+                    <p class="price">💰 LKR 3,500 per load</p>
+                    <p class="rating">⭐ 4.9 rating</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-details">
+                    <h3>Crane (12 Ton) - SafeLift Crane Services</h3>
+                    <p class="location">📍 7.8 km away</p>
+                    <p class="price">💰 Starting LKR 12,000 per hour</p>
+                    <p class="tags">🏗️ Includes operator</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Book Now</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-details">
+                    <h3>Delivery Truck - Express Builders Delivery</h3>
+                    <p class="location">📍 1.9 km away</p>
+                    <p class="price">💰 LKR 2,000 per trip</p>
+                    <p class="tags">🧱 Ideal for bricks, cement, tools</p>
+                </div>
+                <div class="card-action">
+                    <button class="btn-red">Book Now</button>
+                </div>
+            </div>
+
+            <div class="see-more-container">
+                <button class="btn-see-more">see more...</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">👷</span> Build<span class="logo-highlight">it</span>
+                <p class="tagline">BUILDING THE FUTURE</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Projects</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-social">
+                <span>Follow us on:</span>
+                <div class="social-icons">
+                   <!-- Using simple text for icons, replace with SVGs or FontAwesome -->
+                   <span>FB</span> <span>IG</span> <span>TW</span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 Buildit Construction App. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
