@@ -212,10 +212,16 @@ img {
     color: var(--color-primary-black);
     position: relative;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .nav a:hover {
     color: #ff9800;
+}
+
+.nav a.active {
+    color: #ff9800;
+    font-weight: 600;
 }
 
 /* 3. Actions Section (Flex 1 to push to right) */
@@ -372,7 +378,7 @@ img {
     height: 90%;
     object-fit: cover; 
     display: block;
-    border-radius: var(--radius-md);
+    border-radius: 48px;
 }
 
 .icon-link {
