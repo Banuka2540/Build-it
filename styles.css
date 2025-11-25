@@ -1,0 +1,293 @@
+/* --- 1. General Resets and Variables --- */
+:root {
+    --primary-color: #000;      /* Black */
+    --secondary-color: #ff9800; /* Adjusted Yellow/Orange to better match the logo/CTA cards */
+    --text-light: #fff;
+    --text-dark: #333;
+    --font-family: 'Poppins', sans-serif;
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* --- 2. Buttons and Utility Styles --- */
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--primary-color);
+    margin-top: 20px;
+}
+
+.primary-btn:hover {
+    background-color: #333;
+}
+
+.secondary-btn {
+    background-color: var(--primary-color); 
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 15px;
+    /* Ensure the text is right-aligned on the card for visual balance */
+    align-self: flex-end; 
+}
+
+.secondary-btn:hover {
+    opacity: 0.8;
+}
+
+.yellow-bg {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); /* Text on yellow background is black */
+}
+
+/* --- 3. Header/Navigation Bar --- */
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Updated Logo Styling */
+.logo-img {
+    height: 35px; /* Adjust height for the logo image */
+    width: auto;
+}
+
+.nav a {
+    margin-left: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.contact-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* --- 4. Hero Section Layout and Content --- */
+
+.hero-section .container {
+    display: flex;
+    gap: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 600px;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 70px; 
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Hero Image Container */
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    /* This shifts the whole container up slightly to align with the nav bar, as seen in the original image */
+    margin-top: -50px; 
+}
+
+.badge {
+    position: absolute;
+    top: 30px; /* Adjusted to fit better with the image */
+    left: 0;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge strong {
+    font-size: 20px;
+    display: block;
+    line-height: 1;
+}
+
+.hero-image-wrapper {
+    height: 100%;
+    min-height: 650px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Styling the image element directly */
+.hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    display: block;
+    border-radius: 8px;
+}
+
+.icon-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-top-left-radius: 8px; /* For the cutout effect on the corner */
+}
+
+/* --- 5. CTA Grid Section --- */
+
+.cta-grid-section {
+    background-color: #f7f7f7; /* Light background for separation */
+    padding-bottom: 80px;
+}
+
+.cta-grid-section .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* Pull the grid up to overlap the hero section slightly, as in the image */
+    margin-top: -60px; 
+}
+
+.cta-card {
+    padding: 30px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+}
+
+.cta-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Basic Media Query for responsiveness */
+@media (max-width: 900px) {
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+    }
+    .hero-content h1 {
+        font-size: 50px;
+    }
+    .stats-bar {
+        justify-content: center;
+    }
+    .hero-image-container {
+        margin-top: 30px;
+    }
+    .hero-image-wrapper {
+        min-height: 400px;
+    }
+    .cta-grid-section .container {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .nav {
+        display: none; 
+    }
+    .cta-grid-section .container {
+        grid-template-columns: 1fr;
+    }
+    .secondary-btn {
+         align-self: flex-start; /* Reset alignment on single-column layout */
+    }
+}
