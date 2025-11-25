@@ -1,31 +1,47 @@
 /*
 |--------------------------------------------------------------------------
-| CSS STYLESHEET: BuildIt Landing Page (Final Verified)
+| CSS STYLESHEET: BuildIt Landing Page (Complete)
 |--------------------------------------------------------------------------
+| Sections:
+| 1. Global Resets & Variables
+| 2. Buttons & Utilities
+| 3. Header & Navigation
+| 4. Hero Section
+| 5. CTA Grid Section
+| 6. Popular Services Section
+| 7. Why Choose BuildIt (Accordion)
+| 8. Top-rated Professionals
+| 9. Subscription Plans
+| 10. Testimonial Section
+| 11. Contact/Consultation Section
+| 12. Footer
+| 13. Responsive Design
 */
 
 /* --- 1. Global Resets and Variables 🎨 --- */
-
+html {
+    scroll-behavior: smooth;
+}
 :root {
-    /* Base Colors */
-    --color-primary-black: #000;
+    /* Colors */
+    --color-primary-black: #000000;
     --color-secondary-yellow: #ff9800; /* Buttons, badge, highlights */
     --color-premium-red: #D52B3E;      /* Premium Plan Highlight */
     
     /* Text Colors */
-    --color-text-light: #fff;
-    --color-text-dark: #333;
-    --color-text-body: #555;
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-text-body: #555555;
     
     /* Section Specific Colors */
     --color-services-title: #111827; 
     --color-services-body: #4B5563; 
     
     /* Backgrounds */
+    --color-white: #ffffff;
     --color-bg-gray: #F3F4F6;       /* Service cards */
     --color-light-bg: #f7f7f7;      /* CTA grid */
-    --color-lighter-gray: #FAFAFA;  /* Plan bodies */
-    --color-white: #ffffff;
+    --color-lighter-gray: #FAFAFA;  /* Plan/Form backgrounds */
 
     /* Typography */
     --font-family-poppins: 'Poppins', sans-serif;
@@ -60,6 +76,11 @@ a {
     text-decoration: none;
     color: var(--color-primary-black);
     transition: color 0.2s;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 /* --- 2. Button & Utility Styles ⚙️ --- */
@@ -116,51 +137,140 @@ a {
     margin-bottom: 40px;
 }
 
-/* --- 3. Header/Navigation Bar 🧭 --- */
-
-.header .container {
+.section-header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-.logo-img {
-    height: 35px; 
-    width: auto;
+.section-header-row.right-align {
+    justify-content: flex-end;
+    margin-bottom: 20px;
 }
 
-.nav a {
-    margin-left: 25px;
-    font-size: 15px;
+.see-more-link {
+    font-size: 16px;
     font-weight: 600;
+    color: var(--color-secondary-yellow);
+    transition: color 0.2s;
+}
+
+.see-more-link:hover {
     color: var(--color-primary-black);
 }
 
-.nav a:hover {
-    color: var(--color-secondary-yellow);
+/* --- 3. Header/Navigation Bar 🧭 --- */
+
+/* --- 3. Header/Navigation Bar 🧭 --- */
+
+.header {
+    background-color: #E0E0E0; /* Light gray background matches the image */
+    padding: 15px 0;
+    position: sticky; /* Optional: keeps header visible while scrolling */
+    top: 0;
+    z-index: 1000;
 }
 
-.header-actions {
+.header .container {
     display: flex;
+    justify-content: space-between; /* Ensures Logo Left, Nav Center, Actions Right */
     align-items: center;
 }
 
-.search-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    margin-right: 15px;
+/* 1. Logo Section (Flex 1 to push nav to center) */
+.logo-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.contact-btn {
+.logo-img {
+    height: 45px; /* Slightly larger logo based on image */
+    width: auto;
+}
+
+/* 2. Navigation Section (Flex 2 to center) */
+.nav {
+    flex: 2;
+    display: flex;
+    justify-content: center; /* Centers the links */
+    gap: 40px; /* Space between links */
+}
+
+.nav a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary-black);
+    position: relative;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: var(--color-text-dark);
+}
+
+/* 3. Actions Section (Flex 1 to push to right) */
+.header-actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Button (White Circle) */
+.search-btn {
+    background-color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--color-primary-black);
+}
+
+.search-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Log In Button (Black Pill) */
+.login-btn {
     background-color: var(--color-primary-black);
     color: var(--color-text-light);
-    padding: 10px 25px;
-    border-radius: var(--radius-sm);
+    padding: 10px 30px;
+    border-radius: 30px; /* Pill shape */
     font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    margin-top: 0; /* Reset global btn margin */
+}
+
+.login-btn:hover {
+    opacity: 0.8;
+}
+
+/* Mobile Responsive Update */
+@media (max-width: 900px) {
+    .nav {
+        display: none; /* Hide nav links on small screens */
+    }
+    
+    .header-actions {
+        gap: 10px;
+    }
+    
+    .login-btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
 }
 
 /* --- 4. Hero Section 🌟 --- */
@@ -247,8 +357,8 @@ a {
 }
 
 .hero-main-img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     object-fit: cover; 
     display: block;
     border-radius: var(--radius-md);
@@ -539,28 +649,6 @@ a {
     background-color: var(--color-white);
 }
 
-.section-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.section-header-row .section-title {
-    margin-bottom: 0;
-}
-
-.see-more-link {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-secondary-yellow);
-    transition: color 0.2s;
-}
-
-.see-more-link:hover {
-    color: var(--color-primary-black);
-}
-
 .professionals-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -758,29 +846,266 @@ a {
     background-color: #A31E2D;
 }
 
-/* --- 10. Responsive Design (Consolidated) 📱 --- */
+/* --- 10. Testimonial Section 💬 --- */
+
+.testimonial-section {
+    padding: 60px 0 100px;
+    background-color: var(--color-white);
+}
+
+.testimonial-card {
+    background-color: var(--color-lighter-gray);
+    border-radius: var(--radius-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    min-height: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 100%;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.testimonial-content {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-stars {
+    margin-bottom: 20px;
+}
+
+.testimonial-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-primary-black);
+    line-height: 1.2;
+}
+
+.quote-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-body);
+    margin-bottom: 40px;
+}
+
+.customer-info strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary-black);
+}
+
+.customer-role {
+    font-size: 0.9rem;
+    color: var(--color-text-body);
+}
+
+/* --- 11. Contact/Consultation Section 📧 --- */
+
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.contact-text h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-primary-black);
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+.contact-form-card {
+    background-color: var(--color-lighter-gray);
+    padding: 40px;
+    border-radius: var(--radius-xl);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-text-body);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: var(--font-family-poppins);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--color-secondary-yellow);
+}
+
+.form-input.textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--color-primary-black);
+    color: var(--color-text-light);
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+/* --- 12. Footer Section 🦶 --- */
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 0 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-tagline {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img-small {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text-white {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-nav a {
+    color: #fff;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: var(--color-secondary-yellow);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.85rem;
+    margin-right: auto;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.social-icon:hover {
+    background-color: var(--color-secondary-yellow);
+}
+
+/* --- 13. Responsive Design 📱 --- */
 
 @media (max-width: 992px) {
-    /* Hero/Header adjustments */
+    /* Hero */
     .hero-section .container {
         flex-direction: column;
         text-align: center;
         min-height: auto;
     }
-    .hero-content h1 {
-        font-size: 50px;
-    }
-    .stats-bar {
-        justify-content: center;
-    }
-    .hero-image-container {
-        margin-top: 30px;
-    }
-    .hero-image-wrapper {
-        min-height: 400px;
-    }
+    .hero-content h1 { font-size: 50px; }
+    .stats-bar { justify-content: center; }
+    .hero-image-container { margin-top: 30px; }
+    .hero-image-wrapper { min-height: 400px; }
     
-    /* Grid Adjustments (2 columns for Tablet) */
+    /* 2-Column Grids */
     .cta-grid-section .container,
     .services-grid,
     .professionals-grid,
@@ -789,37 +1114,40 @@ a {
         gap: 20px;
     }
     
-    /* Pricing Grid Special Case: Center the last item if odd? No, standard grid is fine. */
-
-    /* Why Choose Section */
-    .why-choose-grid {
+    /* Complex Sections stack */
+    .why-choose-grid,
+    .testimonial-card,
+    .contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    .why-choose-left {
-        text-align: center;
+    
+    .why-choose-left { text-align: center; }
+    .black-btn, .all-in-one-text { 
+        margin-left: auto; margin-right: auto; display: block; 
     }
-    .black-btn {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-    .all-in-one-text {
-        margin-left: auto;
-        margin-right: auto;
-    }
+    
+    /* Testimonial adjustments */
+    .testimonial-image { min-height: 250px; }
+    
+    /* Contact adjustments */
+    .contact-text h2 { font-size: 2.5rem; }
+    
+    /* Footer adjustments */
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { flex-wrap: wrap; gap: 20px; }
+    .footer-bottom { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
 }
 
 @media (max-width: 600px) {
-    /* Header/Nav adjustment */
-    .nav {
-        display: none; 
-    }
-    .header-actions {
-        gap: 10px;
-    }
+    /* Header/Nav */
+    .nav { display: none; }
+    /* Nav Toggle - Ensure button is visible if added via JS/HTML */
+    .menu-toggle { display: block; background: none; border: none; font-size: 24px; cursor: pointer; }
     
-    /* Grid Adjustments (1 column for Mobile) */
+    .header-actions { gap: 10px; }
+    
+    /* 1-Column Grids */
     .cta-grid-section .container,
     .services-grid,
     .professionals-grid,
@@ -827,28 +1155,37 @@ a {
         grid-template-columns: 1fr;
     }
     
-    .secondary-btn {
-         align-self: flex-start; 
-    }
-    .service-card {
-        min-height: auto; 
-        padding: 32px 24px;
-    }
-    .card-btn {
-        bottom: 24px;
-        right: 24px;
-    }
+    .secondary-btn { align-self: flex-start; }
+    .service-card { min-height: auto; padding: 32px 24px; }
+    .card-btn { bottom: 24px; right: 24px; }
     
     .top-rated-professionals-section,
     .subscription-plans-section,
     .why-choose-section,
-    .popular-services-section {
+    .popular-services-section,
+    .testimonial-section,
+    .contact-section {
         padding: 50px 0;
     }
     
-    .section-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
+    .section-header-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .section-header-row.right-align { justify-content: flex-start; }
+}
+
+/* Add style for active mobile menu */
+.nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+.nav.active a {
+    margin: 10px 0;
+    text-align: center;
 }
