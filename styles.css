@@ -88,7 +88,7 @@ img {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s, opacity 0.3s, transform 0.2s;
@@ -399,7 +399,7 @@ img {
 /* --- 5. CTA Grid Section 🧱 --- */
 
 .cta-grid-section {
-    background-color: var(--color-light-bg); 
+    background-color:#e2e2e2; 
     padding-bottom: 80px;
     padding-top: 160px;
 }
@@ -433,6 +433,7 @@ img {
 
 .popular-services-section {
     padding: 80px 0; 
+    background-color: rgb(255, 255, 255);
 }
 
 .services-grid {
@@ -521,9 +522,11 @@ img {
 
 /* --- 7. Why Choose BuildIt Section 💡 --- */
 
+/* --- 7. Why Choose BuildIt Section 💡 --- */
+
 .why-choose-section {
     padding: 100px 0;
-    background-color: var(--color-white);
+    background-color: #e2e2e2;
 }
 
 .why-choose-grid {
@@ -543,42 +546,57 @@ img {
     font-weight: 900;
     color: var(--color-primary-black);
     margin-bottom: 20px;
+    line-height: 1.1;
 }
 
 .why-description {
-    font-family: inter;
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text-body);
     margin-bottom: 30px;
 }
 
+/* Updated Black Button to match image */
 .black-btn {
-    padding: 15px 40px;
-    font-size: 16px;
-    border-radius: 6px;
+    background-color: var(--color-primary-black);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase; /* ALL CAPS */
+    letter-spacing: 0.5px;
 }
 
+.black-btn:hover {
+    background-color: #333;
+}
+
+/* Graphics Text Styles */
 .all-in-one-text {
     margin-top: 60px;
-    max-width: 350px; 
 }
 
-.all-in-one-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: brightness(0); 
+.graphic-text {
+    display: flex;
+    flex-direction: column;
 }
 
-.all-in-one-text .subtitle {
-    font-family: var(--font-family-poppins);
+.huge-text {
+    font-family: 'Poppins', sans-serif; /* Use a handwriting font if available */
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.sub-graphic-text {
+    font-size: 20px;
     font-weight: 600;
-    font-size: 18px;
-    color: var(--color-primary-black);
-    margin-top: 5px;
+    letter-spacing: 1px;
+    margin-left: 50px; /* Offset slightly */
 }
 
+/* Accordion Styles */
 .why-choose-right {
     display: flex;
     flex-direction: column;
@@ -590,16 +608,13 @@ img {
     border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* The ACTIVE/OPEN State (Orange) */
 .accordion-item.highlighted {
-    background-color: var(--color-secondary-yellow);
-    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
-}
-
-.accordion-item.highlighted .accordion-content {
-    color: var(--color-primary-black); 
+    background-color: var(--color-secondary-yellow); /* Orange Color */
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
 }
 
 .accordion-header {
@@ -614,52 +629,54 @@ img {
     user-select: none;
 }
 
+/* Icon Container - Black Circle */
 .icon-toggle {
-    font-size: 30px;
-    line-height: 1;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-primary-black);
+    color: var(--color-white);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-primary-black);
-    color: var(--color-text-light);
-    border-radius: 50%;
+    flex-shrink: 0;
     margin-left: 15px;
-    transition: transform 0.3s, background-color 0.3s;
 }
 
-/* Accordion States */
-.accordion-item:not(.open) .close-icon { display: none; }
-.accordion-item.open .plus-icon { display: none; }
+/* Icon Switching Logic */
+.plus-svg, .close-svg {
+    transition: transform 0.3s;
+}
+
+/* By default (closed), show Plus, hide Close */
+.accordion-item .close-svg { display: none; }
+.accordion-item .plus-svg { display: block; }
+
+/* When Open, show Close, hide Plus */
+.accordion-item.open .close-svg { display: block; }
+.accordion-item.open .plus-svg { display: none; }
+
 
 .accordion-content {
     max-height: 0;
     opacity: 0;
-    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease, padding 0.3s ease;
     padding: 0 25px;
-    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-}
-
-.accordion-content p {
-    padding-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-services-body);
 }
 
 .accordion-item.open .accordion-content {
-    max-height: 200px; 
+    max-height: 200px; /* Allow expansion */
     opacity: 1;
-    visibility: visible;
-    padding-top: 10px;
+    padding-bottom: 20px; /* Add padding only when open */
 }
 
-.accordion-item.open .icon-toggle {
-    background-color: var(--color-primary-black); 
-    color: var(--color-white);
+.accordion-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-primary-black); /* Text is black on orange bg */
+    margin: 0;
 }
-
 /* --- 8. Top-rated Professionals Section 🌟 --- */
 
 .top-rated-professionals-section {
@@ -740,7 +757,7 @@ img {
 
 .subscription-plans-section {
     padding: 100px 0;
-    background-color: var(--color-white);
+    background-color: #e2e2e2;
 }
 
 .pricing-grid {
@@ -855,13 +872,8 @@ img {
 }
 
 .basic-btn:hover, .smart-btn:hover {
-    background-color: var(--color-premium-red);
+    background-color:#d67600;
     color: var(--color-text-light);
-}
-
-.premium-btn:hover {
-    opacity: 0.9;
-    background-color: #A31E2D;
 }
 
 /* --- 10. Testimonial Section 💬 --- */
@@ -935,7 +947,7 @@ img {
 
 .contact-section {
     padding: 80px 0;
-    background-color: var(--color-white);
+    background-color: #e2e2e2;
 }
 
 .contact-grid {

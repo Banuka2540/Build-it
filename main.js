@@ -46,23 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 3. Accordion Functionality ---
+    // --- 3. Accordion Functionality (Updated) ---
     const accordionItems = document.querySelectorAll('.accordion-item');
+
     accordionItems.forEach(item => {
+        // Note: We attach the click to the item itself or header for better UX
         const header = item.querySelector('.accordion-header');
+
         header.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
+
+            // 1. Close all other items first
             accordionItems.forEach(i => {
                 i.classList.remove('open');
                 i.classList.remove('highlighted');
             });
+
+            // 2. If the clicked item was NOT open, open it now.
+            // (If it WAS open, we did nothing after closing all, so it stays closed - effectively toggling off)
             if (!isOpen) {
                 item.classList.add('open');
                 item.classList.add('highlighted');
             }
         });
     });
-
     // --- 4. Contact Form Submission ---
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
