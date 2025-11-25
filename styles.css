@@ -118,14 +118,17 @@ img {
     background-color: var(--color-primary-black); 
     color:white;
     border: none;
+    border-radius: 30px;
     padding: 10px 20px;
     font-size: 14px;
     margin-top: 15px;
-    align-self: flex-end; 
+    align-self: flex-start; 
 }
 
 .secondary-btn:hover {
     opacity: 0.8;
+    background-color: #ffffff;
+    color: black;
 }
 
 .yellow-bg {
@@ -194,7 +197,7 @@ img {
 }
 
 .logo-img {
-    height: 45px; /* Slightly larger logo based on image */
+    height: 55px; /* Slightly larger logo based on image */
     width: auto;
 }
 
@@ -569,13 +572,13 @@ img {
     padding: 15px 30px;
     font-size: 14px;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 40px;
     text-transform: uppercase; /* ALL CAPS */
     letter-spacing: 0.5px;
 }
 
 .black-btn:hover {
-    background-color: #333;
+    background-color:#ff9800;
 }
 
 /* Graphics Text Styles */
