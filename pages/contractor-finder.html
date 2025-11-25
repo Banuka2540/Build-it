@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildIt - Find a Contractor</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/contractor-finder.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header (inherited from main styles.css) -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../logo.png" alt="BuildIt Logo" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="../index.html">Home</a>
+                <a href="#">About</a>
+                <a href="../index.html#popular-services">Services</a>
+                <a href="#">Projects</a>
+                <a href="#">Locations</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">🔍</button>
+                <a href="#" class="contact-btn">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contractor-finder-main">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="contractor-page-title">
+                <h1>Find a Contractor</h1>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="contractor-filter-section">
+                <span class="contractor-filter-label">Filter</span>
+                <div class="contractor-filter-dropdown">
+                    <select id="locationFilter">
+                        <option value="">Distance (All)</option>
+                        <option value="colombo">Colombo 05</option>
+                        <option value="nugegoda">Nugegoda</option>
+                    </select>
+                    <select id="serviceFilter">
+                        <option value="">Services (All)</option>
+                        <option value="masonry">Masonry</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="renovations">Renovations</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Contractor Cards -->
+            <div class="contractors-list">
+                <!-- Card 1 -->
+                <div class="single-contractor-card">
+                    <div class="contractor-card-content">
+                        <h2>Lakshan Construction Services</h2>
+                        <div class="contractor-rating">
+                            ⭐ <span class="contractor-rating-score">4.9 / 5</span> 
+                            <span class="contractor-rating-count">(220 reviews)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            📍 <span>2.1 km away (Colombo 05)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            💰 <span>Starts from LKR 6,500 per day</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            🔨 <span>Masonry • Renovations • Tiling</span>
+                        </div>
+                    </div>
+                    <button class="contractor-book-btn">Book Now</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="single-contractor-card">
+                    <div class="contractor-card-content">
+                        <h2>Nuwan Electrical & Wiring</h2>
+                        <div class="contractor-rating">
+                            ⭐ <span class="contractor-rating-score">4.8 / 5</span> 
+                            <span class="contractor-rating-count">(180 reviews)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            📍 <span>1.4 km away (Nugegoda)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            💰 <span>Starts from LKR 4,200 per job</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            🔨 <span>Full house wiring, repairs</span>
+                        </div>
+                    </div>
+                    <button class="contractor-book-btn">Book Now</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="single-contractor-card">
+                    <div class="contractor-card-content">
+                        <h2>Lakshan Construction Services</h2>
+                        <div class="contractor-rating">
+                            ⭐ <span class="contractor-rating-score">4.9 / 5</span> 
+                            <span class="contractor-rating-count">(220 reviews)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            📍 <span>2.1 km away (Colombo 05)</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            💰 <span>Starts from LKR 6,500 per day</span>
+                        </div>
+                        <div class="contractor-info-item">
+                            🔨 <span>Masonry • Renovations • Tiling</span>
+                        </div>
+                    </div>
+                    <button class="contractor-book-btn">Book Now</button>
+                </div>
+            </div>
+
+            <!-- See More Button -->
+            <div class="contractor-see-more-container">
+                <button class="contractor-see-more-btn">see more...</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -3,7 +3,9 @@
 | CSS STYLESHEET: BuildIt Landing Page (Final Verified)
 |--------------------------------------------------------------------------
 */
-
+html{
+    scroll-behavior: smooth;
+}
 /* --- 1. Global Resets and Variables 🎨 --- */
 
 :root {
@@ -286,7 +288,7 @@ a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin-top: -60px; 
+    margin-top: -40px; 
 }
 
 .cta-card {
