@@ -1047,16 +1047,16 @@ img {
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
     margin-bottom: 60px;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 .footer-tagline {
@@ -1081,32 +1081,95 @@ img {
     color: #fff;
 }
 
-.footer-nav {
-    display: flex;
-    gap: 40px;
+.footer-description {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.footer-nav a {
+.footer-address {
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
     color: #fff;
-    font-size: 0.95rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #999;
+    font-size: 0.9rem;
+    text-decoration: none;
     transition: color 0.2s;
 }
 
-.footer-nav a:hover {
+.footer-links a:hover {
+    color: var(--color-secondary-yellow);
+}
+
+.footer-contact {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.footer-contact a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-contact a:hover {
     color: var(--color-secondary-yellow);
 }
 
 .footer-bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #333;
 }
 
 .copyright {
     color: #888;
     font-size: 0.85rem;
-    margin-right: auto;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: #999;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: var(--color-secondary-yellow);
 }
 
 .social-icons {
