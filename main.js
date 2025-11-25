@@ -1,6 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('BuildIt page interactivity loaded.');
 
+    // --- 0. Navbar Active Link Highlighting ---
+    const navLinks = document.querySelectorAll('.nav a');
+    
+    function updateActiveLink() {
+        let currentSection = '';
+        
+        // Get all sections and check which one is in view
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 100) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        // Update active class on nav links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveLink);
+    // Update on page load
+    updateActiveLink();
+
     // --- 1. Mobile Navigation Toggle & Smooth Link Closing ---
     const navMenu = document.querySelector('.nav');
     // Ensure you have this button in your HTML header (or create it dynamically if missing)
