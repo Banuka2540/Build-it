@@ -772,7 +772,7 @@ img {
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
     margin-top: 50px;
 }
 
@@ -794,16 +794,19 @@ img {
 
 .plan-header h3 {
     font-family: var(--font-family-poppins);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .plan-price {
     font-family: var(--font-family-poppins);
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 900;
     line-height: 1;
+    margin-top: 20px;
+    margin-left:80px;
+    color: rgb(26, 26, 26);
 }
 
 .premium-plan .plan-header {
@@ -878,6 +881,10 @@ img {
     background-color: var(--color-premium-red);
     color: var(--color-text-light);
     border: 2px solid var(--color-premium-red);
+}
+.premium-btn:hover{
+    background-color: white;
+    color: black    ;
 }
 
 .basic-btn:hover, .smart-btn:hover {
