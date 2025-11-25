@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buildit - Construction Services</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for the brand colors and typography */
@@ -13,17 +12,148 @@
             --color-secondary: #ed1c24; /* Bright Red */
             --color-accent: #FFA500; /* Orange/Yellow */
             --color-text: #333;
+            --color-text-light: #ffffff; /* Added for button text */
         }
         body {
             font-family: 'Inter', sans-serif;
             color: var(--color-text);
             background-color: #f8f8f8;
+            /* Ensure the body takes full width */
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* --- Shared Container Width --- */
+        .page-container {
+            /* Increased max-width for a full-width feel while keeping content centered */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px; /* Padding for edges */
+        }
+
+        /* --- Header Styling (Adjusted to match provided CSS look) --- */
+        .header {
+            background-color: #E0E0E0; /* Light gray background matches the image */
+            padding: 15px 0;
+            position: sticky; /* keeps header visible while scrolling */
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between; /* Ensures Logo Left, Nav Center, Actions Right */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 1. Logo Section */
+        .logo-text {
+            /* Adjusted logo text style to match the provided Tailwind version's look */
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* Logo specific styling */
         .logo-highlight {
             color: var(--color-accent);
         }
+
+        /* 2. Navigation Section */
+        .nav {
+            display: flex;
+            justify-content: center; /* Centers the links */
+            gap: 40px; /* Space between links */
+            flex-grow: 1; /* Allow navigation to take up space for centering */
+        }
+
+        .nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-primary);
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav a.active {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        /* 3. Actions Section */
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Search Button (White Circle) */
+        .search-btn {
+            background-color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: var(--color-primary);
+        }
+
+        .search-btn:hover {
+            background-color: var(--color-accent);
+        }
+        
+        /* Log In Button (Black Pill) */
+        .login-btn {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 10px 30px;
+            border-radius: 30px; /* Pill shape */
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: opacity 0.3s, background-color 0.3s;
+            line-height: normal; /* Ensure consistent button height */
+        }
+
+        .login-btn:hover {
+            background-color: #333;
+        }
+        
+        /* Mobile Responsive Update for Header */
+        @media (max-width: 900px) {
+            .nav {
+                display: none; /* Hide nav links on small screens */
+            }
+            .header .container {
+                justify-content: space-between;
+            }
+            .header-actions {
+                gap: 10px;
+            }
+            .login-btn {
+                padding: 8px 20px;
+                font-size: 12px;
+            }
+        }
+        /* --- End Header Styling --- */
+
 
         /* Section Title Pill */
         .section-title-pill {
@@ -79,18 +209,17 @@
 </head>
 <body class="min-h-screen">
 
-<<<<<<< HEAD
     <header class="header">
         <div class="container">
             <div class="logo-wrapper">
-                <a href="#home" class="logo">
-                    <img src="logo1.png" alt="BuildIt Logo" class="logo-img">
+                <a href="#home" class="logo-text">
+                    <span class="text-3xl">👷</span> Build<span class="logo-highlight">it</span>
                 </a>
             </div>
 
-            <nav class="nav">
+            <nav class="nav hidden lg:flex">
                 <a href="#home">Home</a>
-                <a href="#services">Services</a>
+                <a href="#services" class="active">Services</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#plans">Plans</a>
@@ -101,38 +230,18 @@
                 <button class="search-btn" aria-label="Search">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </button>
-                <a href="./Login/login.html" class="btn login-btn">LOG IN</a>
-=======
-    <!-- Header -->
-    <header class="sticky top-0 bg-white shadow-md z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center flex-wrap">
-            <div class="text-2xl font-extrabold flex items-center gap-1">
-                <span class="text-3xl">👷</span> Build<span class="logo-highlight">it</span>
-            </div>
-            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-                <a href="#" class="text-gray-600 hover:text-red-600 transition">Home</a>
-                <a href="#" class="text-gray-600 hover:text-red-600 transition">About</a>
-                <a href="#" class="text-red-600 border-b-2 border-red-600 pb-1">Services</a>
-                <a href="#" class="text-gray-600 hover:text-red-600 transition">Projects</a>
-                <a href="#" class="text-gray-600 hover:text-red-600 transition">Contact</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <span class="text-xl cursor-pointer text-gray-700 hover:text-black">🔍</span>
-                <button class="bg-black text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-800 transition">Login</button>
->>>>>>> 5703f0aba2966672ba097db0f3af5d04fca36ce0
+                <a href="./Login/login.html" class="login-btn">LOG IN</a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main class="page-container py-10">
         
-        <!-- SECTION 1: Find a Contractor -->
         <section class="mb-16">
             <div class="text-center mb-8">
                 <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Find a Contractor</h2>
             </div>
 
-            <!-- Filter and Search Bar -->
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2 w-full md:w-auto">
                     <label for="contractor-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
@@ -150,9 +259,7 @@
                 </div>
             </div>
 
-            <!-- Initial Cards -->
             <div id="contractor-initial-content">
-                <!-- Card 1 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Lakshan Construction Services</h3>
@@ -166,7 +273,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Nuwan Electrical & Wiring</h3>
@@ -182,9 +288,7 @@
             </div>
 
 
-            <!-- Hidden More Content Section -->
             <div id="contractor-more-content" class="more-content">
-                <!-- Card 3 (Hidden) -->
                 <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Sena Plumbing Services</h3>
@@ -197,7 +301,6 @@
                         <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
                     </div>
                 </div>
-                <!-- Card 4 (Hidden) -->
                 <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Dilrukshan Painting & Finishing</h3>
@@ -219,13 +322,11 @@
             </div>
         </section>
 
-        <!-- SECTION 2: Order Construction Materials -->
         <section class="mb-16">
             <div class="text-center mb-8">
                 <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Order Construction Materials</h2>
             </div>
 
-            <!-- Filter and Search Bar -->
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2 w-full md:w-auto">
                     <label for="material-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
@@ -242,9 +343,7 @@
                 </div>
             </div>
 
-            <!-- Initial Cards -->
             <div id="material-initial-content">
-                <!-- Card 1 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Cement (50kg Bags) - K&D Hardware Suppliers</h3>
@@ -257,7 +356,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Sand (1 Cube) - Premasiri Sand Suppliers</h3>
@@ -271,9 +369,7 @@
                 </div>
             </div>
             
-            <!-- Hidden More Content Section -->
             <div id="material-more-content" class="more-content">
-                <!-- Card 3 (Hidden) -->
                 <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Bricks (Grade A) - Lanka Ceramics Store</h3>
@@ -285,8 +381,7 @@
                         <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Order Now</button>
                     </div>
                 </div>
-                 <!-- Card 4 (Hidden) -->
-                <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                 <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Tiling Adhesive (25kg) - Metro Cement</h3>
                         <p class="text-sm text-gray-600 mb-1">📍 0.9 km away</p>
@@ -306,13 +401,11 @@
             </div>
         </section>
 
-        <!-- SECTION 3: Book Transport -->
         <section class="mb-16">
             <div class="text-center mb-8">
                 <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Book Transport</h2>
             </div>
 
-            <!-- Filter and Search Bar -->
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2 w-full md:w-auto">
                     <label for="transport-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
@@ -329,9 +422,7 @@
                 </div>
             </div>
 
-            <!-- Initial Cards -->
             <div id="transport-initial-content">
-                <!-- Card 1 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">6-Wheeler Tipper Truck - Premasiri Transport</h3>
@@ -344,7 +435,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Crane (12 Ton) - SafeLift Crane Services</h3>
@@ -357,7 +447,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Delivery Truck - Express Builders Delivery</h3>
@@ -371,9 +460,7 @@
                 </div>
             </div>
             
-            <!-- Hidden More Content Section -->
             <div id="transport-more-content" class="more-content">
-                <!-- Card 4 (Hidden) -->
                 <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Excavator (JCB) - Earth Movers Corp</h3>
@@ -385,7 +472,6 @@
                         <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
                     </div>
                 </div>
-                <!-- Card 5 (Hidden) -->
                 <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="card-details mb-4 md:mb-0">
                         <h3 class="text-xl font-semibold mb-1 text-gray-900">Water Bowzer (5,000L) - Water Logistics</h3>
@@ -408,7 +494,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-black text-white pt-10 pb-6 mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-start gap-8">
             <div class="footer-logo">
@@ -459,8 +544,7 @@
                     button.textContent = `See More ${category.charAt(0).toUpperCase() + category.slice(1)}s...`;
                 } else {
                     // Expand the content
-                    // Set maxHeight to a value larger than the expected content height to enable CSS transition
-                    // This is necessary because transitioning 'max-height: 0' to 'max-content' doesn't work well.
+                    // Set maxHeight to scrollHeight to allow the transition to work properly.
                     contentDiv.style.maxHeight = contentDiv.scrollHeight + 'px'; 
                     contentDiv.classList.add('expanded');
                     button.textContent = 'Show Less...';
@@ -473,13 +557,13 @@
             const categories = ['contractor', 'material', 'transport'];
             categories.forEach(category => {
                 const contentDiv = document.getElementById(`${category}-more-content`);
+                // Only recalculate if it's currently expanded
                 if (contentDiv && contentDiv.classList.contains('expanded')) {
                     // Recalculate and set max-height when expanded and resized
                     contentDiv.style.maxHeight = contentDiv.scrollHeight + 'px';
                 }
             });
         });
-
     </script>
 </body>
 </html>
