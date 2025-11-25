@@ -27,7 +27,9 @@
 }
 
 body {
-    background-color: var(--bg-light);
+    /* Background: gradient + image overlay. The project image is `Login/login-bg.jpeg`. */
+    background: linear-gradient(135deg, rgba(246,249,252,0.6), rgba(234,242,248,0.6)), url('login-bg.jpeg') no-repeat center/cover;
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -35,6 +37,8 @@ body {
     padding: 20px;
     position: relative; /* For absolute positioning of Back button */
 }
+
+/* NOTE: consolidated .form-card styling appears later; its background will be translucent so the image shows through */
 
 /* =========================================
    2. BACK TO HOME BUTTON
@@ -78,7 +82,9 @@ body {
 }
 
 .form-card {
-    background: white;
+    /* translucent card so background image is visible while content remains readable */
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
     width: 100%;
     max-width: 550px;
     padding: 40px;
