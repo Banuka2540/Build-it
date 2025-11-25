@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buildit - Construction Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="services.css">
     <style>
         /* Custom styles for the brand colors and typography */
         :root {
@@ -15,6 +14,10 @@
             --color-text: #333;
             --color-text-light: #ffffff; /* Added for button text */
         }
+        .logo-img {
+    height: 60px; /* Adjust this value to control the size */
+    width: auto;  /* Keeps the image proportional */
+}
         body {
             font-family: 'Inter', sans-serif;
             color: var(--color-text);
@@ -206,8 +209,168 @@
             opacity: 1;
             margin-top: 18px; /* Add margin after reveal */
         }
+        
+/* --- 12. Footer Section 🦶 --- */
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 0 30px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-tagline {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img-small {
+    height: 64px;
+    width: auto;
+}
+
+.logo-text-white {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-address {
+    font-size: 0.85rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #999;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--color-secondary-yellow);
+}
+
+.footer-contact {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.footer-contact a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-contact a:hover {
+    color: var(--color-secondary-yellow);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: #999;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: var(--color-secondary-yellow);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.social-icon:hover {
+    background-color: var(--color-secondary-yellow);
+}
+/* Footer adjustments */
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { flex-wrap: wrap; gap: 20px; }
+    .footer-bottom { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
     </style>
 </head>
+
 <body class="min-h-screen">
 
     <header class="header">
@@ -495,36 +658,87 @@
 
     </main>
 
-    <footer class="bg-black text-white pt-10 pb-6 mt-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-start gap-8">
-            <div class="footer-logo">
-                <div class="text-2xl font-extrabold flex items-center gap-1">
-                    <span class="text-3xl text-yellow-500">👷</span> Build<span class="text-yellow-500">it</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <p class="footer-tagline">Building the future with excellence</p>
+                    <div class="footer-logo">
+                        <img src="footerlogo.png" alt="BuildIt" class="logo-img-small"> 
+                        
+                    </div>
+                    <p class="footer-description">BuildIt is your comprehensive platform for smart, fast, and reliable construction.</p>
+                    <p class="footer-address">123 Construction Blvd<br>City, State, ZIP</p>
                 </div>
-                <p class="text-xs tracking-widest text-yellow-500 mt-1 ml-9">BUILDING THE FUTURE</p>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <nav class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#projects">Our Projects</a>
+                        <a href="#services">Our Services</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#careers">Careers</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <nav class="footer-links">
+                        <a href="#">General Contracting</a>
+                        <a href="#">Design & Build</a>
+                        <a href="#">Material Supply</a>
+                        <a href="#">Masonry & Renovation</a>
+                        <a href="#">Electrical Work</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Get in Touch</h4>
+                    <p class="footer-contact">
+                        <a href="tel:+15551234567">Phone: +1 (555) 123-4567</a><br>
+                        <a href="mailto:info@buildit.com">Email: info@buildit.com</a><br>
+                        <span>Hours: Mon - Fri: 9 AM - 5 PM</span>
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Get in Touch</h4>
+                    <p class="footer-contact">
+                        <a href="mailto:info@buildit.com">Email: info@buildit.com</a><br>
+                        <span>Hours: Mon - Fri: 9 AM - 5 PM</span>
+                    </p>
+                </div>
             </div>
             
-            <div class="footer-links flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Home</a>
-                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Services</a>
-                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Projects</a>
-                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Terms & Conditions</a>
-                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Contact</a>
-            </div>
-            
-            <div class="footer-social flex flex-col items-start md:items-end">
-                <span class="text-sm text-gray-400">Follow us on:</span>
-                <div class="social-icons flex gap-3 mt-2">
-                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">FB</span> 
-                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">IG</span> 
-                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">TW</span>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    Copyright © 2025 BuildIt Inc. | All Rights Reserved
+                </div>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Policy</a>
+                    <a href="#cookies">Cookie Policy</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.627l-5.1-6.694-5.867 6.694H2.2l7.73-8.835L1.75 2.25h6.969l4.612 6.09L17.25 2.25h.994zm-1.162 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="text-center text-xs text-gray-600 mt-8">
-            © 2024 Buildit Construction App. All rights reserved.
         </div>
     </footer>
+
 
     <script>
         /**
