@@ -4,42 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buildit - Construction Services</title>
-    <link rel="stylesheet" href="services.css">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the brand colors and typography */
+        :root {
+            --color-primary: #000000; /* Black */
+            --color-secondary: #ed1c24; /* Bright Red */
+            --color-accent: #FFA500; /* Orange/Yellow */
+            --color-text: #333;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text);
+            background-color: #f8f8f8;
+        }
+
+        /* Logo specific styling */
+        .logo-highlight {
+            color: var(--color-accent);
+        }
+
+        /* Section Title Pill */
+        .section-title-pill {
+            background-color: var(--color-accent);
+            box-shadow: 0 4px 10px rgba(255, 165, 0, 0.4);
+        }
+
+        /* Card details hover effect */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Button Red */
+        .btn-red {
+            background-color: var(--color-secondary);
+            box-shadow: 0 4px 10px rgba(237, 28, 36, 0.4);
+            transition: background-color 0.3s;
+        }
+        .btn-red:hover {
+            background-color: #c41219;
+            box-shadow: 0 6px 15px rgba(237, 28, 36, 0.6);
+        }
+
+        /* See More Button (Accent) */
+        .btn-see-more {
+            background-color: var(--color-accent);
+            transition: all 0.3s;
+            box-shadow: 0 3px 8px rgba(255, 165, 0, 0.3);
+        }
+        .btn-see-more:hover {
+            background-color: #fff;
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        /* Hidden content with transition for smooth reveal (using max-height) */
+        .more-content {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+        }
+        .more-content.expanded {
+            max-height: 1000px; /* Large enough value to contain content */
+            opacity: 1;
+            margin-top: 18px; /* Add margin after reveal */
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen">
 
     <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">👷</span> Build<span class="logo-highlight">it</span>
+    <header class="sticky top-0 bg-white shadow-md z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center flex-wrap">
+            <div class="text-2xl font-extrabold flex items-center gap-1">
+                <span class="text-3xl">👷</span> Build<span class="logo-highlight">it</span>
             </div>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Projects</a>
-                <a href="#">Contact</a>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="#" class="text-gray-600 hover:text-red-600 transition">Home</a>
+                <a href="#" class="text-gray-600 hover:text-red-600 transition">About</a>
+                <a href="#" class="text-red-600 border-b-2 border-red-600 pb-1">Services</a>
+                <a href="#" class="text-gray-600 hover:text-red-600 transition">Projects</a>
+                <a href="#" class="text-gray-600 hover:text-red-600 transition">Contact</a>
             </nav>
-            <div class="header-actions">
-                <span class="search-icon">🔍</span>
-                <button class="btn-login">Login</button>
+            <div class="flex items-center space-x-4">
+                <span class="text-xl cursor-pointer text-gray-700 hover:text-black">🔍</span>
+                <button class="bg-black text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-800 transition">Login</button>
             </div>
         </div>
     </header>
 
-    <main>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
         <!-- SECTION 1: Find a Contractor -->
-        <section class="category-section">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">Find a Contractor</h2>
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Find a Contractor</h2>
             </div>
 
-            <!-- Updated Filter and Search Bar -->
-            <div class="filter-search-bar">
-                <div class="filter-group">
-                    <label for="contractor-filter" class="filter-label">Sort By:</label>
-                    <select id="contractor-filter" class="dropdown-filter">
+            <!-- Filter and Search Bar -->
+            <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <label for="contractor-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
+                    <select id="contractor-filter" class="p-2 border border-gray-300 rounded-lg text-sm appearance-none cursor-pointer shadow-sm min-w-[150px]">
                         <option value="nearest">Nearest</option>
                         <option value="rating-high">Rating (High → Low)</option>
                         <option value="price-low">Price (Low → High)</option>
@@ -47,195 +119,342 @@
                         <option value="availability">Availability</option>
                     </select>
                 </div>
-                <div class="search-group">
-                    <input type="text" class="search-input" placeholder="Search Services (e.g., Tiling, Plumbing)...">
-                    <button class="btn-search">Search</button>
+                <div class="flex w-full md:w-2/3 gap-2">
+                    <input type="text" class="search-input p-2 border border-gray-300 rounded-lg flex-grow text-sm shadow-sm" placeholder="Search Services (e.g., Tiling, Plumbing)...">
+                    <button class="btn-search bg-black text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-800 transition">Search</button>
                 </div>
             </div>
 
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>Lakshan Construction Services</h3>
-                    <p class="rating">⭐ 4.9 / 5 (220 reviews)</p>
-                    <p class="location">📍 2.1 km away (Colombo 05)</p>
-                    <p class="price">💰 Starts from LKR 6,500 per day</p>
-                    <p class="tags">🛠️ Masonry • Renovations • Tiling</p>
+            <!-- Initial Cards -->
+            <div id="contractor-initial-content">
+                <!-- Card 1 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Lakshan Construction Services</h3>
+                        <p class="text-sm font-bold text-yellow-600 mb-1">⭐ 4.9 / 5 <span class="font-normal text-gray-500">(220 reviews)</span></p>
+                        <p class="text-sm text-gray-600">📍 2.1 km away (Colombo 05)</p>
+                        <p class="text-sm font-semibold text-green-700">💰 Starts from LKR 6,500 per day</p>
+                        <p class="text-xs text-gray-500 mt-1">🛠️ Masonry • Renovations • Tiling</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <button class="btn-red">Book Now</button>
+
+                <!-- Card 2 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Nuwan Electrical & Wiring</h3>
+                        <p class="text-sm font-bold text-yellow-600 mb-1">⭐ 4.8 / 5 <span class="font-normal text-gray-500">(180 reviews)</span></p>
+                        <p class="text-sm text-gray-600">📍 1.4 km away (Nugegoda)</p>
+                        <p class="text-sm font-semibold text-green-700">💰 Starts from LKR 4,200 per job</p>
+                        <p class="text-xs text-gray-500 mt-1">🛠️ Full house wiring, repairs</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>Nuwan Electrical & Wiring</h3>
-                    <p class="rating">⭐ 4.8 / 5 (180 reviews)</p>
-                    <p class="location">📍 1.4 km away (Nugegoda)</p>
-                    <p class="price">💰 Starts from LKR 4,200 per job</p>
-                    <p class="tags">🛠️ Full house wiring, repairs</p>
+
+            <!-- Hidden More Content Section -->
+            <div id="contractor-more-content" class="more-content">
+                <!-- Card 3 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Sena Plumbing Services</h3>
+                        <p class="text-sm font-bold text-yellow-600 mb-1">⭐ 4.7 / 5 <span class="font-normal text-gray-500">(112 reviews)</span></p>
+                        <p class="text-sm text-gray-600">📍 3.5 km away (Mount Lavinia)</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 5,000 hourly rate</p>
+                        <p class="text-xs text-gray-500 mt-1">🚰 Leak repairs • Bathroom fitting • Water lines</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <button class="btn-red">Book Now</button>
+                <!-- Card 4 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Dilrukshan Painting & Finishing</h3>
+                        <p class="text-sm font-bold text-yellow-600 mb-1">⭐ 4.9 / 5 <span class="font-normal text-gray-500">(98 reviews)</span></p>
+                        <p class="text-sm text-gray-600">📍 1.8 km away (Kandy)</p>
+                        <p class="text-sm font-semibold text-green-700">💰 Starts from LKR 50 per sqft</p>
+                        <p class="text-xs text-gray-500 mt-1">🎨 Exterior • Interior • Waterproofing</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="see-more-container">
-                <button class="btn-see-more">see more...</button>
+            <div class="text-center mt-8">
+                <button onclick="toggleContent('contractor')" id="contractor-toggle-btn" class="btn-see-more text-black px-12 py-3 rounded-full font-bold italic border-2 border-transparent hover:shadow-lg">
+                    See More Contractors...
+                </button>
             </div>
         </section>
 
         <!-- SECTION 2: Order Construction Materials -->
-        <section class="category-section">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">Order Construction Materials</h2>
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Order Construction Materials</h2>
             </div>
 
-            <!-- Updated Filter and Search Bar -->
-            <div class="filter-search-bar">
-                <div class="filter-group">
-                    <label for="material-filter" class="filter-label">Sort By:</label>
-                    <select id="material-filter" class="dropdown-filter">
+            <!-- Filter and Search Bar -->
+            <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <label for="material-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
+                    <select id="material-filter" class="p-2 border border-gray-300 rounded-lg text-sm appearance-none cursor-pointer shadow-sm min-w-[150px]">
                         <option value="nearest">Nearest</option>
-                        <option value="rating-high">Rating (High → Low)</option>
+                        <option value="rating-high">Supplier Rating</option>
                         <option value="price-low">Price (Low → High)</option>
-                        <option value="service-type">Supplier Rating</option>
-                        <option value="availability">Delivery Time</option>
+                        <option value="delivery">Delivery Time</option>
                     </select>
                 </div>
-                <div class="search-group">
-                    <input type="text" class="search-input" placeholder="Search Materials (e.g., Cement, Sand)...">
-                    <button class="btn-search">Search</button>
+                <div class="flex w-full md:w-2/3 gap-2">
+                    <input type="text" class="search-input p-2 border border-gray-300 rounded-lg flex-grow text-sm shadow-sm" placeholder="Search Materials (e.g., Cement, Sand)...">
+                    <button class="btn-search bg-black text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-800 transition">Search</button>
                 </div>
             </div>
 
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>Cement (50kg Bags) - K&D Hardware Suppliers</h3>
-                    <p class="location">📍 1.1 km away</p>
-                    <p class="price">💰 LKR 1,420 per bag (lowest)</p>
-                    <p class="rating">⭐ 4.8 rating</p>
+            <!-- Initial Cards -->
+            <div id="material-initial-content">
+                <!-- Card 1 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Cement (50kg Bags) - K&D Hardware Suppliers</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 1.1 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 1,420 per bag (lowest)</p>
+                        <p class="text-xs text-yellow-600 mt-1">⭐ 4.8 rating</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Order Now</button>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <button class="btn-red">Order Now</button>
+
+                <!-- Card 2 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Sand (1 Cube) - Premasiri Sand Suppliers</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 4.2 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 6,800 per cube</p>
+                        <p class="text-xs text-red-600 mt-1">🚚 Delivery within 2 hours</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden More Content Section -->
+            <div id="material-more-content" class="more-content">
+                <!-- Card 3 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Bricks (Grade A) - Lanka Ceramics Store</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 2.5 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 40 per unit (bulk discount)</p>
+                        <p class="text-xs text-yellow-600 mt-1">🧱 Available stock: 50,000 units</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Order Now</button>
+                    </div>
+                </div>
+                 <!-- Card 4 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Tiling Adhesive (25kg) - Metro Cement</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 0.9 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 2,250 per bag</p>
+                        <p class="text-xs text-red-600 mt-1">🚚 Delivery time: 45 minutes</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Order Now</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>Sand (1 Cube) - Premasiri Sand Suppliers </h3>
-                    <p class="location">📍 4.2 km away</p>
-                    <p class="price">💰 LKR 6,800 per cube</p>
-                    <p class="delivery">🚚 Delivery within 2 hours</p>
-                </div>
-                <div class="card-action">
-                    <button class="btn-red">Order Now</button>
-                </div>
-            </div>
-
-            <div class="see-more-container">
-                <button class="btn-see-more">see more...</button>
+            <div class="text-center mt-8">
+                <button onclick="toggleContent('material')" id="material-toggle-btn" class="btn-see-more text-black px-12 py-3 rounded-full font-bold italic border-2 border-transparent hover:shadow-lg">
+                    See More Materials...
+                </button>
             </div>
         </section>
 
         <!-- SECTION 3: Book Transport -->
-        <section class="category-section">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">Book Transport</h2>
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Book Transport</h2>
             </div>
 
-            <!-- Updated Filter and Search Bar -->
-            <div class="filter-search-bar">
-                <div class="filter-group">
-                    <label for="transport-filter" class="filter-label">Sort By:</label>
-                    <select id="transport-filter" class="dropdown-filter">
+            <!-- Filter and Search Bar -->
+            <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 w-full md:w-auto">
+                    <label for="transport-filter" class="text-sm font-semibold text-gray-700 whitespace-nowrap">Sort By:</label>
+                    <select id="transport-filter" class="p-2 border border-gray-300 rounded-lg text-sm appearance-none cursor-pointer shadow-sm min-w-[150px]">
                         <option value="nearest">Nearest</option>
                         <option value="rating-high">Rating (High → Low)</option>
                         <option value="price-low">Price (Low → High)</option>
-                        <option value="service-type">Vehicle Type</option>
-                        <option value="availability">Availability</option>
+                        <option value="vehicle-type">Vehicle Type</option>
                     </select>
                 </div>
-                <div class="search-group">
-                    <input type="text" class="search-input" placeholder="Search Vehicles (e.g., Tipper, Crane)...">
-                    <button class="btn-search">Search</button>
+                <div class="flex w-full md:w-2/3 gap-2">
+                    <input type="text" class="search-input p-2 border border-gray-300 rounded-lg flex-grow text-sm shadow-sm" placeholder="Search Vehicles (e.g., Tipper, Crane)...">
+                    <button class="btn-search bg-black text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-800 transition">Search</button>
                 </div>
             </div>
 
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>6-Wheeler Tipper Truck - Premasiri Transport</h3>
-                    <p class="location">📍 3.1 km away</p>
-                    <p class="price">💰 LKR 3,500 per load</p>
-                    <p class="rating">⭐ 4.9 rating</p>
+            <!-- Initial Cards -->
+            <div id="transport-initial-content">
+                <!-- Card 1 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">6-Wheeler Tipper Truck - Premasiri Transport</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 3.1 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 3,500 per load</p>
+                        <p class="text-xs text-yellow-600 mt-1">⭐ 4.9 rating</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
-                <div class="card-action">
-                    <button class="btn-red">Book Now</button>
+
+                <!-- Card 2 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Crane (12 Ton) - SafeLift Crane Services</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 7.8 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 Starting LKR 12,000 per hour</p>
+                        <p class="text-xs text-gray-500 mt-1">🏗️ Includes operator</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card bg-white p-6 rounded-xl mb-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Delivery Truck - Express Builders Delivery</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 1.9 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 2,000 per trip</p>
+                        <p class="text-xs text-gray-500 mt-1">🧱 Ideal for bricks, cement, tools</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden More Content Section -->
+            <div id="transport-more-content" class="more-content">
+                <!-- Card 4 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Excavator (JCB) - Earth Movers Corp</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 12.0 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 Starting LKR 8,000 per hour</p>
+                        <p class="text-xs text-gray-500 mt-1">🚜 Earthwork • Demolition • Site clearing</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
+                </div>
+                <!-- Card 5 (Hidden) -->
+                <div class="card bg-white p-6 rounded-xl mt-4 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div class="card-details mb-4 md:mb-0">
+                        <h3 class="text-xl font-semibold mb-1 text-gray-900">Water Bowzer (5,000L) - Water Logistics</h3>
+                        <p class="text-sm text-gray-600 mb-1">📍 5.5 km away</p>
+                        <p class="text-sm font-semibold text-green-700">💰 LKR 4,500 per trip</p>
+                        <p class="text-xs text-gray-500 mt-1">💧 Site wetting • Dust control</p>
+                    </div>
+                    <div class="card-action w-full md:w-auto">
+                        <button class="btn-red text-white px-6 py-3 rounded-full font-bold uppercase text-sm w-full md:w-auto">Book Now</button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-details">
-                    <h3>Crane (12 Ton) - SafeLift Crane Services</h3>
-                    <p class="location">📍 7.8 km away</p>
-                    <p class="price">💰 Starting LKR 12,000 per hour</p>
-                    <p class="tags">🏗️ Includes operator</p>
-                </div>
-                <div class="card-action">
-                    <button class="btn-red">Book Now</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-details">
-                    <h3>Delivery Truck - Express Builders Delivery</h3>
-                    <p class="location">📍 1.9 km away</p>
-                    <p class="price">💰 LKR 2,000 per trip</p>
-                    <p class="tags">🧱 Ideal for bricks, cement, tools</p>
-                </div>
-                <div class="card-action">
-                    <button class="btn-red">Book Now</button>
-                </div>
-            </div>
-
-            <div class="see-more-container">
-                <button class="btn-see-more">see more...</button>
+            <div class="text-center mt-8">
+                <button onclick="toggleContent('transport')" id="transport-toggle-btn" class="btn-see-more text-black px-12 py-3 rounded-full font-bold italic border-2 border-transparent hover:shadow-lg">
+                    See More Transport...
+                </button>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
+    <footer class="bg-black text-white pt-10 pb-6 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-start gap-8">
             <div class="footer-logo">
-                <span class="logo-icon">👷</span> Build<span class="logo-highlight">it</span>
-                <p class="tagline">BUILDING THE FUTURE</p>
+                <div class="text-2xl font-extrabold flex items-center gap-1">
+                    <span class="text-3xl text-yellow-500">👷</span> Build<span class="text-yellow-500">it</span>
+                </div>
+                <p class="text-xs tracking-widest text-yellow-500 mt-1 ml-9">BUILDING THE FUTURE</p>
             </div>
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">Services</a>
-                <a href="#">Projects</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Contact</a>
+            
+            <div class="footer-links flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Home</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Services</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Projects</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Terms & Conditions</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 transition">Contact</a>
             </div>
-            <div class="footer-social">
-                <span>Follow us on:</span>
-                <div class="social-icons">
-                   <!-- Using simple text for icons, replace with SVGs or FontAwesome -->
-                   <span>FB</span> <span>IG</span> <span>TW</span>
+            
+            <div class="footer-social flex flex-col items-start md:items-end">
+                <span class="text-sm text-gray-400">Follow us on:</span>
+                <div class="social-icons flex gap-3 mt-2">
+                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">FB</span> 
+                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">IG</span> 
+                    <span class="bg-gray-800 w-8 h-8 flex justify-center items-center rounded-full text-xs font-bold cursor-pointer hover:bg-yellow-500 hover:text-black transition">TW</span>
                 </div>
             </div>
         </div>
-        <div class="copyright">
+        <div class="text-center text-xs text-gray-600 mt-8">
             © 2024 Buildit Construction App. All rights reserved.
         </div>
     </footer>
 
+    <script>
+        /**
+         * Toggles the visibility of the "more content" section for a given category.
+         * @param {string} category - The category prefix (e.g., 'contractor', 'material', 'transport').
+         */
+        function toggleContent(category) {
+            const contentDiv = document.getElementById(`${category}-more-content`);
+            const button = document.getElementById(`${category}-toggle-btn`);
+            
+            if (contentDiv && button) {
+                const isExpanded = contentDiv.classList.contains('expanded');
+
+                if (isExpanded) {
+                    // Collapse the content
+                    contentDiv.classList.remove('expanded');
+                    contentDiv.style.maxHeight = '0';
+                    button.textContent = `See More ${category.charAt(0).toUpperCase() + category.slice(1)}s...`;
+                } else {
+                    // Expand the content
+                    // Set maxHeight to a value larger than the expected content height to enable CSS transition
+                    // This is necessary because transitioning 'max-height: 0' to 'max-content' doesn't work well.
+                    contentDiv.style.maxHeight = contentDiv.scrollHeight + 'px'; 
+                    contentDiv.classList.add('expanded');
+                    button.textContent = 'Show Less...';
+                }
+            }
+        }
+
+        // Add a listener to adjust max-height on window resize for responsiveness
+        window.addEventListener('resize', () => {
+            const categories = ['contractor', 'material', 'transport'];
+            categories.forEach(category => {
+                const contentDiv = document.getElementById(`${category}-more-content`);
+                if (contentDiv && contentDiv.classList.contains('expanded')) {
+                    // Recalculate and set max-height when expanded and resized
+                    contentDiv.style.maxHeight = contentDiv.scrollHeight + 'px';
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>
