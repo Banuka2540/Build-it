@@ -23,79 +23,122 @@ body {
 }
 
 
-/* --- Header Styling --- */
-header {
-    background-color: #fff;
-    padding: 15px 0; /* Padding is handled by .nav-container */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    position: sticky;
+.header {
+    background-color: #E0E0E0; /* Light gray background matches the image */
+    padding: 15px 0;
+    position: sticky; /* Optional: keeps header visible while scrolling */
     top: 0;
     z-index: 1000;
 }
 
-.nav-container {
+.header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensures Logo Left, Nav Center, Actions Right */
     align-items: center;
 }
 
-.logo {
-    font-size: 26px;
-    font-weight: 800; /* Extra bold */
-    color: #000;
+/* 1. Logo Section (Flex 1 to push nav to center) */
+.logo-wrapper {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 5px;
+    justify-content: flex-start;
 }
 
-.logo-icon {
-    color: #FFA500; /* Yellow/Orange */
-    font-size: 28px;
+.logo-img {
+    height: 55px; /* Slightly larger logo based on image */
+    width: auto;
 }
 
-nav {
+/* 2. Navigation Section (Flex 2 to center) */
+.nav {
+    flex: 2;
     display: flex;
-    gap: 30px;
+    justify-content: center; /* Centers the links */
+    gap: 40px; /* Space between links */
 }
 
-nav a {
+.nav a {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary-black);
+    position: relative;
     text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 5px 0;
-    transition: color 0.3s;
-}
-nav a:hover {
-    color: #FFA500;
+    transition: color 0.3s ease;
 }
 
+.nav a:hover {
+    color: #ff9800;
+}
+
+.nav a.active {
+    color: #ff9800;
+    font-weight: 600;
+}
+
+/* 3. Actions Section (Flex 1 to push to right) */
 .header-actions {
+    flex: 1;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 15px;
 }
 
-.search-icon {
-    font-size: 18px;
+/* Search Button (White Circle) */
+.search-btn {
+    background-color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: #333;
+    transition: background-color 0.2s;
+    color: var(--color-primary-black);
 }
 
-.btn-login {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 30px;
-    cursor: pointer;
+.search-btn:hover {
+    background-color: #ff9800;
+}
+
+/* Log In Button (Black Pill) */
+.login-btn {
+    background-color: var(--color-primary-black);
+    color: var(--color-text-light);
+    padding: 10px 30px;
+    border-radius: 30px; /* Pill shape */
+    font-weight: 600;
     font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    margin-top: 0; /* Reset global btn margin */
 }
-.btn-login:hover {
-    background-color: #333;
+
+.login-btn:hover {
+    opacity: 0.8;
+    ;
 }
+
+/* Mobile Responsive Update */
+@media (max-width: 900px) {
+    .nav {
+        display: none; /* Hide nav links on small screens */
+    }
+    
+    .header-actions {
+        gap: 10px;
+    }
+    
+    .login-btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
+
 
 /* --- Main Content Styling --- */
 main {
