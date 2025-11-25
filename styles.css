@@ -98,17 +98,25 @@ img {
 .primary-btn {
     background-color: var(--color-primary-black);
     color: var(--color-text-light);
-    border: 1px solid var(--color-primary-black);
-    margin-top: 20px;
+    padding: 10px 10px;
+    border-radius: 30px; /* Pill shape */
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    margin-top: 0; /* Reset global btn margin */
 }
 
+
 .primary-btn:hover {
-    background-color: var(--color-text-dark);
+    background-color:#ff9800;
 }
 
 .secondary-btn {
     background-color: var(--color-primary-black); 
-    color: var(--color-secondary-yellow);
+    color:white;
     border: none;
     padding: 10px 20px;
     font-size: 14px;
@@ -207,7 +215,7 @@ img {
 }
 
 .nav a:hover {
-    color: var(--color-text-dark);
+    color: #ff9800;
 }
 
 /* 3. Actions Section (Flex 1 to push to right) */
@@ -235,7 +243,7 @@ img {
 }
 
 .search-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #ff9800;
 }
 
 /* Log In Button (Black Pill) */
@@ -255,6 +263,7 @@ img {
 
 .login-btn:hover {
     opacity: 0.8;
+    ;
 }
 
 /* Mobile Responsive Update */
@@ -303,7 +312,9 @@ img {
     margin-bottom: 30px;
     color: var(--color-text-body);
 }
-
+.stats{
+    font-family: inter;
+}
 .stats-bar {
     display: flex;
     gap: 40px;
@@ -390,6 +401,7 @@ img {
 .cta-grid-section {
     background-color: var(--color-light-bg); 
     padding-bottom: 80px;
+    padding-top: 160px;
 }
 
 .cta-grid-section .container {
@@ -417,6 +429,8 @@ img {
 
 /* --- 6. Popular Services Section 👷 --- */
 
+/* --- 6. Popular Services Section 👷 --- */
+
 .popular-services-section {
     padding: 80px 0; 
 }
@@ -436,16 +450,21 @@ img {
     flex-direction: column;
     align-items: flex-start;
     min-height: 380px; 
-    transition: transform 0.2s, box-shadow 0.2s;
+    /* Add background-color to transition for smooth color change */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+/* NEW: Apply the orange background ONLY on hover */
 .service-card:hover {
+    background-color: var(--color-secondary-yellow);
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-.service-card.card-highlighted {
-    background-color: var(--color-secondary-yellow);
+/* Ensure text colors stay correct on hover (Black text on Orange BG is standard) */
+.service-card:hover h3,
+.service-card:hover p {
+    color: var(--color-primary-black);
 }
 
 .service-icon {
@@ -453,6 +472,7 @@ img {
     height: 56px;
     margin-bottom: 24px;
     color: var(--color-services-title);
+    transition: color 0.3s ease;
 }
 
 .service-icon svg {
@@ -477,10 +497,6 @@ img {
     font-weight: 400;
 }
 
-.card-highlighted p {
-     color: var(--color-primary-black); 
-}
-
 .card-btn {
     position: absolute;
     bottom: 32px;
@@ -496,9 +512,10 @@ img {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+/* Button behavior on hover */
 .card-btn:hover {
     transform: scale(1.05);
-    background-color: var(--color-secondary-yellow);
+    background-color: var(--color-white); /* Optional: turn button white on hover for contrast */
     color: var(--color-primary-black);
 }
 
@@ -529,6 +546,7 @@ img {
 }
 
 .why-description {
+    font-family: inter;
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text-body);
