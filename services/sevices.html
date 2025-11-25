@@ -155,10 +155,21 @@
         /* --- End Header Styling --- */
 
 
-        /* Section Title Pill */
-        .section-title-pill {
-            background-color: var(--color-accent);
-            box-shadow: 0 4px 10px rgba(255, 165, 0, 0.4);
+        /* Section Title (refined) - plain heading without decorative accents */
+        .section-title {
+            display: inline-block;
+            font-size: 1.6rem; /* larger heading */
+            font-weight: 700;
+            color: #0b1220; /* deep charcoal */
+            background: transparent;
+            padding: 0; /* no extra padding */
+            letter-spacing: 0.2px;
+            text-transform: none;
+            position: relative;
+        }
+
+        .section-title.small {
+            font-size: 1.125rem;
         }
 
         /* Card details hover effect */
@@ -184,13 +195,21 @@
         /* See More Button (Accent) */
         .btn-see-more {
             background-color: var(--color-accent);
-            transition: all 0.3s;
-            box-shadow: 0 3px 8px rgba(255, 165, 0, 0.3);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(255, 165, 0, 0.22);
+            padding: 8px 14px; /* smaller size */
+            font-size: 0.9rem;
+            border-radius: 24px; /* still rounded but less chunky */
+            font-style: normal; /* remove italic look */
+            border: 1px solid transparent;
+            display: inline-block;
         }
         .btn-see-more:hover {
             background-color: #fff;
             color: var(--color-accent);
             border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
         }
 
         /* Hidden content with transition for smooth reveal (using max-height) */
@@ -238,8 +257,8 @@
     <main class="page-container py-10">
         
         <section class="mb-16">
-            <div class="text-center mb-8">
-                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Find a Contractor</h2>
+                <div class="text-center mb-8">
+                <h2 class="section-title">Find a Contractor</h2>
             </div>
 
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -324,7 +343,7 @@
 
         <section class="mb-16">
             <div class="text-center mb-8">
-                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Order Construction Materials</h2>
+                <h2 class="section-title">Order Construction Materials</h2>
             </div>
 
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -403,7 +422,7 @@
 
         <section class="mb-16">
             <div class="text-center mb-8">
-                <h2 class="section-title-pill text-xl font-bold inline-block px-10 py-3 rounded-full text-black tracking-wider">Book Transport</h2>
+                <h2 class="section-title">Book Transport</h2>
             </div>
 
             <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
